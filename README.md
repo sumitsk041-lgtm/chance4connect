@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Pharma Virtual Summit | chance4connect.info</title>
+    <title>Global Pharma Virtual Event Landing Page | chance4connect.info</title>
     <!-- Load Tailwind CSS from CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -44,13 +44,13 @@
             'clock': Clock,
             'map-pin': MapPin,
             'mail': Mail,
-            'check': Check // The check icon is used in the list items
+            'check': Check
         };
 
-        // Define a class that correctly extends HTMLElement. This resolves the TypeError.
-        class LucideIconWrapper extends HTMLElement {
+        // Define a base class that correctly extends HTMLElement.
+        class BaseIconElement extends HTMLElement {
             connectedCallback() {
-                // Inject a simple SVG placeholder (e.g., a checkmark) that will inherit 
+                // Inject a simple SVG placeholder (a checkmark) that will inherit 
                 // the size (w-6 h-6) and color classes from the custom element tag itself.
                 this.innerHTML = `
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" 
@@ -61,12 +61,13 @@
             }
         }
 
-        // Register all icons using the correct class constructor
+        // Register all icons using a unique anonymous class that extends BaseIconElement.
+        // This prevents the "constructor has already been used" error upon script re-execution.
         Object.keys(ICON_MAP).forEach(name => {
             const tagName = `icon-${name}`;
             if (!customElements.get(tagName)) {
-                // This call now uses a valid class (LucideIconWrapper), fixing the TypeError.
-                customElements.define(tagName, LucideIconWrapper);
+                // Define a unique anonymous class for each tag registration
+                customElements.define(tagName, class extends BaseIconElement {});
             }
         });
 
@@ -409,5 +410,4 @@
     </footer>
 
 </body>
-</html># chance4connect
-This company is events service industry
+</html>
