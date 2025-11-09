@@ -1,0 +1,368 @@
+function doGet() {
+  return HtmlService.createHtmlOutput(`
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      /* General Styles */
+      body {
+        margin: 0;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        background-color: #f9fafc;
+        color: #222;
+      }
+
+      section {
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #003459;
+        margin-bottom: 20px;
+      }
+
+      /* Hero Section */
+      .hero {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+        animation: zoomfade 20s ease-in-out infinite alternate;
+      }
+
+      @keyframes zoomfade {
+        0% { transform: scale(1); filter: brightness(90%); }
+        100% { transform: scale(1.15); filter: brightness(100%); }
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 30, 60, 0.55);
+        z-index: 2;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 3;
+        animation: fadein 2s ease-out;
+      }
+
+      @keyframes fadein {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .hero-logo {
+        width: 140px;
+        height: auto;
+        margin-bottom: 8px;
+      }
+
+      .tagline {
+        font-size: 1em;
+        letter-spacing: 1px;
+        color: #f0f0f0;
+      }
+
+      h1 {
+        font-size: 2.6em;
+        font-weight: 700;
+        margin: 10px 0 5px;
+      }
+
+      .register-btn {
+        background: #ff7a00;
+        color: white;
+        padding: 14px 32px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1em;
+        transition: background 0.3s;
+      }
+      .register-btn:hover {
+        background: #e06800;
+      }
+
+      /* About */
+      .about {
+        background: #ffffff;
+        color: #333;
+      }
+      .about h3 {
+        color: #003459;
+        font-size: 1.5em;
+        margin-bottom: 10px;
+      }
+      .about p {
+        max-width: 800px;
+        margin: 0 auto 15px;
+        line-height: 1.7em;
+        font-size: 1.05em;
+      }
+
+      /* Speakers */
+      .speakers {
+        background: #e6f0ff;
+      }
+
+      /* Agenda */
+      .agenda {
+        background: #fffaf2;
+      }
+      .agenda-item {
+        background: #fff;
+        max-width: 800px;
+        margin: 15px auto;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        text-align: left;
+        overflow: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .agenda-header {
+        background: #003459;
+        color: white;
+        padding: 15px 20px;
+        cursor: pointer;
+        font-weight: 600;
+        font-size: 1.05em;
+      }
+
+      .agenda-header:hover {
+        background: #005f8a;
+      }
+
+      .agenda-content {
+        display: none;
+        padding: 20px;
+        background: #fff;
+        font-size: 1em;
+        line-height: 1.6em;
+      }
+
+      .agenda-content ul {
+        margin-top: 8px;
+        padding-left: 20px;
+        list-style-type: disc;
+      }
+
+      /* Sponsor Button */
+      .sponsor-btn {
+        display: inline-block;
+        margin-top: 40px;
+        background: #00796b;
+        color: white;
+        padding: 14px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 1.05em;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+      .sponsor-btn:hover { background: #005f54; }
+
+      /* Contact */
+      .contact {
+        background-color: #e6f0ff;
+      }
+      .contact-info {
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+        font-size: 1.05em;
+        line-height: 1.8em;
+      }
+      .contact-info a {
+        color: #003459;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .contact-btn {
+        display: inline-block;
+        background: #003459;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 30px;
+        margin-top: 20px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s;
+      }
+      .contact-btn:hover { background: #002744; }
+
+      footer {
+        background: #003459;
+        color: white;
+        padding: 25px 15px;
+        font-size: 0.9em;
+      }
+
+      @media (max-width: 768px) {
+        h1 { font-size: 2em; }
+        .hero-logo { width: 100px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Hero -->
+    <section class="hero">
+      <img class="hero-bg" src="https://lh3.googleusercontent.com/d/16E8rVQUsQjZFsv8a5yN-lxgVLs6r6pfA=w600" alt="Event Banner">
+      <div class="overlay"></div>
+      <div class="hero-content">
+        <img src="https://lh3.googleusercontent.com/d/18LMo2Fpse4pgbQp_Rij6NQaGZp1lePfR=w1920" class="hero-logo" alt="Chance4Connect Logo">
+        <p class="tagline">Connect. Innovate. Grow.</p>
+        <h1>Virtual Pharma Innovation & R&D Summit 2025</h1>
+        <p>🗓️ 16th December 2025</p>
+        <a href="https://tinyurl.com/5dmud832" target="_blank" class="register-btn">Register Now</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+      <h2>Virtual Pharma Innovation & R&D Summit 2025</h2>
+      <h3>Organized by Chance 4 Connect</h3>
+      <p>
+        Step into the future of pharma innovation! The <b>Virtual Pharma Innovation & R&D Summit 2025</b> 
+        brings together global pharma leaders, visionary innovators, and cutting-edge researchers 
+        to explore the breakthroughs redefining healthcare.
+      </p>
+      <p>
+        From AI-driven drug discovery and data-powered research to next-gen digital health solutions, 
+        this summit dives deep into the technologies and strategies transforming pharma’s future.
+      </p>
+      <p>
+        Join us as we shape the next era of healthcare innovation, foster collaboration, 
+        and accelerate the digital transformation of life sciences worldwide.
+      </p>
+    </section>
+
+    <!-- Speakers -->
+    <section class="speakers">
+      <h2>Speakers</h2>
+      <p><b>Coming Soon...</b></p>
+    </section>
+
+    <!-- Agenda -->
+    <section class="agenda">
+      <h2>4-Hour Trending Virtual Pharma Event Agenda (Starts at 11:00 AM IST)</h2>
+      <p><b>Theme:</b> “Shaping the Future of Pharma: AI, Data & Digital Evolution”</p>
+
+      <div class="agenda-item">
+        <div class="agenda-header">11:00 AM – Opening Keynote: The Future of Pharma Innovation</div>
+        <div class="agenda-content">
+          <p><b>Topic:</b> How technology, collaboration, and new business models are redefining the pharma landscape.</p>
+          <ul>
+            <li>The evolution of patient-centric innovation</li>
+            <li>Global pharma trends for 2025 and beyond</li>
+            <li>Embracing agility and data-driven decision-making</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-header">11:30 AM – Session 1: Digital Transformation in Pharma R&D</div>
+        <div class="agenda-content">
+          <p><b>Topic:</b> Leveraging AI, machine learning, and big data to accelerate research and discovery.</p>
+          <ul>
+            <li>Real-world applications of AI in molecule discovery</li>
+            <li>Predictive analytics and faster clinical insights</li>
+            <li>Overcoming digital adoption barriers</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-header">12:15 PM – Session 2: Breakthroughs in Clinical Research & Trials</div>
+        <div class="agenda-content">
+          <p><b>Topic:</b> How advanced technologies are improving clinical trial efficiency, safety, and patient engagement.</p>
+          <ul>
+            <li>Decentralized trials and real-time monitoring</li>
+            <li>Automation in clinical workflows</li>
+            <li>Enhancing patient recruitment and retention</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-header">1:00 PM – Networking Break (15 Minutes)</div>
+        <div class="agenda-content">
+          <p>Interactive virtual networking lounge for attendees to connect with peers and experts.</p>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-header">1:15 PM – Session 3: The Power of AI & Data in Next-Gen Pharma</div>
+        <div class="agenda-content">
+          <p><b>Topic:</b> Harnessing AI and data ecosystems to deliver personalized and predictive healthcare outcomes.</p>
+          <ul>
+            <li>AI-driven drug development and precision medicine</li>
+            <li>Data security, ethics, and regulatory frameworks</li>
+            <li>Building a connected digital healthcare ecosystem</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="agenda-item">
+        <div class="agenda-header">2:00 PM – Panel Discussion & Closing: The Road Ahead for Digital Pharma</div>
+        <div class="agenda-content">
+          <p><b>Topic:</b> Industry leaders discuss challenges, opportunities, and the future roadmap of digital pharma transformation.</p>
+          <p><b>Panelists:</b> Leading executives from pharma, biotech, and health tech sectors.</p>
+          <p><b>Closing Remarks:</b> Key takeaways and vision for the next phase of pharma innovation.</p>
+        </div>
+      </div>
+
+      <a href="https://l1nk.dev/z3mgp" target="_blank" class="sponsor-btn">💼 Sponsor This Event</a>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <p><b>📍 Office:</b> Chance 4 Connect, Motihari, Bihar, India</p>
+        <p><b>📞 Phone:</b> +91-9508170452</p>
+        <p><b>📧 Email:</b> <a href="mailto:info@chance4connect.info">info@chance4connect.info</a></p>
+      </div>
+      <a href="https://l1nk.dev/FdBVH" target="_blank" class="contact-btn">📩 Send a Message</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      © 2025 Chance4Connect | Connect. Innovate. Grow.<br>
+      🌐 www.chance4connect.info
+    </footer>
+
+    <script>
+      // Make agenda items clickable
+      document.querySelectorAll('.agenda-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const content = header.nextElementSibling;
+          content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        });
+      });
+    </script>
+  </body>
+</html>
+  `);
+}
