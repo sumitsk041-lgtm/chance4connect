@@ -20,6 +20,8 @@
         color: #003459;
         margin-bottom: 20px;
       }
+
+      /* Hero */
       .hero {
         position: relative;
         height: 100vh;
@@ -89,6 +91,8 @@
       .register-btn:hover {
         background: #e06800;
       }
+
+      /* About */
       .about {
         background: #ffffff;
         color: #333;
@@ -104,9 +108,13 @@
         line-height: 1.7em;
         font-size: 1.05em;
       }
+
+      /* Speakers */
       .speakers {
         background: #e6f0ff;
       }
+
+      /* Agenda */
       .agenda {
         background: #fffaf2;
       }
@@ -127,9 +135,19 @@
         cursor: pointer;
         font-weight: 600;
         font-size: 1.05em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
       .agenda-header:hover {
         background: #005f8a;
+      }
+      .arrow {
+        transition: transform 0.3s ease;
+        font-size: 1.2em;
+      }
+      .rotate {
+        transform: rotate(180deg);
       }
       .agenda-content {
         display: none;
@@ -137,12 +155,19 @@
         background: #fff;
         font-size: 1em;
         line-height: 1.6em;
+        animation: fadeInContent 0.4s ease-in-out;
+      }
+      @keyframes fadeInContent {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
       .agenda-content ul {
         margin-top: 8px;
         padding-left: 20px;
         list-style-type: disc;
       }
+
+      /* Sponsor */
       .sponsor-btn {
         display: inline-block;
         margin-top: 40px;
@@ -156,6 +181,8 @@
         transition: background 0.3s;
       }
       .sponsor-btn:hover { background: #005f54; }
+
+      /* Contact */
       .contact {
         background-color: #e6f0ff;
       }
@@ -183,12 +210,15 @@
         transition: background 0.3s;
       }
       .contact-btn:hover { background: #002744; }
+
+      /* Footer */
       footer {
         background: #003459;
         color: white;
         padding: 25px 15px;
         font-size: 0.9em;
       }
+
       @media (max-width: 768px) {
         h1 { font-size: 2em; }
         .hero-logo { width: 100px; }
@@ -197,6 +227,7 @@
   </head>
 
   <body>
+    <!-- Hero -->
     <section class="hero">
       <img class="hero-bg" src="https://lh3.googleusercontent.com/d/16E8rVQUsQjZFsv8a5yN-lxgVLs6r6pfA=w600" alt="Event Banner">
       <div class="overlay"></div>
@@ -209,6 +240,7 @@
       </div>
     </section>
 
+    <!-- About -->
     <section class="about">
       <h2>Virtual Pharma Innovation & R&D Summit 2025</h2>
       <h3>Organized by Chance 4 Connect</h3>
@@ -217,17 +249,22 @@
       <p>Join us as we shape the next era of healthcare innovation, foster collaboration, and accelerate the digital transformation of life sciences worldwide.</p>
     </section>
 
+    <!-- Speakers -->
     <section class="speakers">
       <h2>Speakers</h2>
       <p><b>Coming Soon...</b></p>
     </section>
 
+    <!-- Agenda -->
     <section class="agenda">
       <h2>Event Agenda (Starts at 11:00 AM IST)</h2>
       <p><b>Theme:</b> “Shaping the Future of Pharma: AI, Data & Digital Evolution”</p>
 
       <div class="agenda-item">
-        <div class="agenda-header">11:00 AM – Opening Keynote: The Future of Pharma Innovation</div>
+        <div class="agenda-header">
+          11:00 AM – Opening Keynote: The Future of Pharma Innovation
+          <span class="arrow">▼</span>
+        </div>
         <div class="agenda-content">
           <p><b>Topic:</b> How technology, collaboration, and new business models are redefining the pharma landscape.</p>
           <ul>
@@ -237,8 +274,12 @@
           </ul>
         </div>
       </div>
+
       <div class="agenda-item">
-        <div class="agenda-header">11:30 AM – Session 1: Digital Transformation in Pharma R&D</div>
+        <div class="agenda-header">
+          11:30 AM – Session 1: Digital Transformation in Pharma R&D
+          <span class="arrow">▼</span>
+        </div>
         <div class="agenda-content">
           <p><b>Topic:</b> Leveraging AI, machine learning, and big data to accelerate research and discovery.</p>
           <ul>
@@ -248,8 +289,12 @@
           </ul>
         </div>
       </div>
+
       <div class="agenda-item">
-        <div class="agenda-header">12:15 PM – Session 2: Breakthroughs in Clinical Research & Trials</div>
+        <div class="agenda-header">
+          12:15 PM – Session 2: Breakthroughs in Clinical Research & Trials
+          <span class="arrow">▼</span>
+        </div>
         <div class="agenda-content">
           <p><b>Topic:</b> How advanced technologies are improving clinical trial efficiency, safety, and patient engagement.</p>
           <ul>
@@ -259,14 +304,22 @@
           </ul>
         </div>
       </div>
+
       <div class="agenda-item">
-        <div class="agenda-header">1:00 PM – Networking Break (15 Minutes)</div>
+        <div class="agenda-header">
+          1:00 PM – Networking Break (15 Minutes)
+          <span class="arrow">▼</span>
+        </div>
         <div class="agenda-content">
           <p>Interactive virtual networking lounge for attendees to connect with peers and experts.</p>
         </div>
       </div>
+
       <div class="agenda-item">
-        <div class="agenda-header">1:15 PM – Session 3: The Power of AI & Data in Next-Gen Pharma</div>
+        <div class="agenda-header">
+          1:15 PM – Session 3: The Power of AI & Data in Next-Gen Pharma
+          <span class="arrow">▼</span>
+        </div>
         <div class="agenda-content">
           <p><b>Topic:</b> Harnessing AI and data ecosystems to deliver personalized and predictive healthcare outcomes.</p>
           <ul>
@@ -276,8 +329,12 @@
           </ul>
         </div>
       </div>
+
       <div class="agenda-item">
-        <div class="agenda-header">2:00 PM – Panel Discussion & Closing: The Road Ahead for Digital Pharma</div>
+        <div class="agenda-header">
+          2:00 PM – Panel Discussion & Closing: The Road Ahead for Digital Pharma
+          <span class="arrow">▼</span>
+        </div>
         <div class="agenda-content">
           <p><b>Topic:</b> Industry leaders discuss challenges, opportunities, and the future roadmap of digital pharma transformation.</p>
           <p><b>Panelists:</b> Leading executives from pharma, biotech, and health tech sectors.</p>
@@ -288,6 +345,7 @@
       <a href="https://l1nk.dev/z3mgp" target="_blank" class="sponsor-btn">💼 Sponsor This Event</a>
     </section>
 
+    <!-- Contact -->
     <section class="contact">
       <h2>Contact Us</h2>
       <div class="contact-info">
@@ -298,16 +356,27 @@
       <a href="https://l1nk.dev/FdBVH" target="_blank" class="contact-btn">📩 Send a Message</a>
     </section>
 
+    <!-- Footer -->
     <footer>
       © 2025 Chance4Connect | Connect. Innovate. Grow.<br>
       🌐 www.chance4connect.info
     </footer>
 
+    <!-- JS: Expand/Collapse Agenda -->
     <script>
       document.querySelectorAll('.agenda-header').forEach(header => {
         header.addEventListener('click', () => {
           const content = header.nextElementSibling;
-          content.style.display = content.style.display === 'block' ? 'none' : 'block';
+          const arrow = header.querySelector('.arrow');
+          const isOpen = content.style.display === 'block';
+
+          // Close all other open sections
+          document.querySelectorAll('.agenda-content').forEach(c => c.style.display = 'none');
+          document.querySelectorAll('.arrow').forEach(a => a.classList.remove('rotate'));
+
+          // Toggle current
+          content.style.display = isOpen ? 'none' : 'block';
+          if (!isOpen) arrow.classList.add('rotate');
         });
       });
     </script>
