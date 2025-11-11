@@ -1,5 +1,3 @@
-function doGet() {
-  return HtmlService.createHtmlOutput(`
 <!DOCTYPE html>
 <html>
   <head>
@@ -13,6 +11,7 @@ function doGet() {
         background-color: #f9fafc;
         color: #222;
       }
+
       section { padding: 60px 20px; text-align: center; }
       h2 { color: #003459; margin-bottom: 20px; }
 
@@ -98,16 +97,6 @@ function doGet() {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
       }
-      .agenda-content ul {
-        margin-top: 8px; padding-left: 20px; list-style-type: disc;
-      }
-
-      .sponsor-btn {
-        display: inline-block; margin-top: 40px; background: #00796b;
-        color: white; padding: 14px 30px; border-radius: 30px;
-        text-decoration: none; font-weight: 600; transition: background 0.3s;
-      }
-      .sponsor-btn:hover { background: #005f54; }
 
       /* PRICING */
       .pricing { background: #ffffff; padding: 80px 20px; }
@@ -117,9 +106,8 @@ function doGet() {
       }
       .pricing-card {
         background: #f2f8ff; border: 2px solid #003459; border-radius: 15px;
-        width: 280px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        transition: all 0.4s ease;
-        position: relative;
+        width: 300px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: all 0.4s ease; position: relative;
       }
       .pricing-card:hover {
         transform: translateY(-8px);
@@ -164,16 +152,15 @@ function doGet() {
         padding: 12px 25px; border-radius: 30px; margin-top: 20px;
         text-decoration: none; font-weight: 600;
       }
-      .contact-btn:hover { background: #002744; }
 
       footer {
         background: #003459; color: white; padding: 25px 15px; font-size: 0.9em;
       }
 
       @media (max-width: 768px) {
+        .pricing-container { flex-direction: column; align-items: center; }
         h1 { font-size: 2em; }
         .hero-logo { width: 100px; }
-        .pricing-container { flex-direction: column; align-items: center; }
       }
     </style>
   </head>
@@ -187,24 +174,9 @@ function doGet() {
         <img src="https://lh3.googleusercontent.com/d/18LMo2Fpse4pgbQp_Rij6NQaGZp1lePfR=w1920" class="hero-logo">
         <p class="tagline">Connect. Innovate. Grow.</p>
         <h1>Virtual Pharma Innovation & R&D Summit 2025</h1>
-        <p>🗓️ 16th December 2025</p>
+        <p>🗓 16th December 2025</p>
         <a href="https://tinyurl.com/5dmud832" target="_blank" class="register-btn">Register Now</a>
       </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about">
-      <h2>Virtual Pharma Innovation & R&D Summit 2025</h2>
-      <h3>Organized by Chance 4 Connect</h3>
-      <p>Step into the future of pharma innovation! The <b>Virtual Pharma Innovation & R&D Summit 2025</b> brings together global pharma leaders, visionary innovators, and cutting-edge researchers to explore the breakthroughs redefining healthcare.</p>
-      <p>From AI-driven drug discovery and data-powered research to next-gen digital health solutions, this summit dives deep into the technologies and strategies transforming pharma’s future.</p>
-      <p>Join us as we shape the next era of healthcare innovation, foster collaboration, and accelerate the digital transformation of life sciences worldwide.</p>
-    </section>
-
-    <!-- SPEAKERS -->
-    <section class="speakers">
-      <h2>Speakers</h2>
-      <p><b>Coming Soon...</b></p>
     </section>
 
     <!-- AGENDA -->
@@ -213,46 +185,17 @@ function doGet() {
       <p><b>Theme:</b> “Shaping the Future of Pharma: AI, Data & Digital Evolution”</p>
 
       <div class="agenda-item">
-        <div class="agenda-header">11:00 AM – Opening Keynote: The Future of Pharma Innovation <span class="arrow">▼</span></div>
+        <div class="agenda-header">11:00 AM – Opening Keynote <span class="arrow">▼</span></div>
         <div class="agenda-content">
-          <p><b>Topic:</b> How technology, collaboration, and new business models are redefining the pharma landscape.</p>
-          <ul><li>Patient-centric innovation</li><li>Global pharma trends</li><li>Agile, data-driven R&D</li></ul>
+          <p>How technology and collaboration are redefining pharma innovation.</p>
         </div>
       </div>
-
       <div class="agenda-item">
-        <div class="agenda-header">11:30 AM – Digital Transformation in Pharma R&D <span class="arrow">▼</span></div>
+        <div class="agenda-header">11:30 AM – Digital Transformation in R&D <span class="arrow">▼</span></div>
         <div class="agenda-content">
-          <p><b>Topic:</b> Leveraging AI, machine learning, and big data to accelerate discovery.</p>
-          <ul><li>AI in molecule discovery</li><li>Predictive analytics</li><li>Overcoming digital barriers</li></ul>
+          <p>Leveraging AI and data to accelerate discovery and insights.</p>
         </div>
       </div>
-
-      <div class="agenda-item">
-        <div class="agenda-header">12:15 PM – Breakthroughs in Clinical Research <span class="arrow">▼</span></div>
-        <div class="agenda-content">
-          <p><b>Topic:</b> How technology enhances trial efficiency and patient engagement.</p>
-          <ul><li>Decentralized trials</li><li>Automation & workflows</li><li>Recruitment innovations</li></ul>
-        </div>
-      </div>
-
-      <div class="agenda-item">
-        <div class="agenda-header">1:15 PM – The Power of AI & Data in Next-Gen Pharma <span class="arrow">▼</span></div>
-        <div class="agenda-content">
-          <p><b>Topic:</b> Harnessing AI and data ecosystems for predictive healthcare.</p>
-          <ul><li>AI-driven precision medicine</li><li>Data ethics & security</li><li>Digital ecosystem design</li></ul>
-        </div>
-      </div>
-
-      <div class="agenda-item">
-        <div class="agenda-header">2:00 PM – Panel Discussion & Closing Remarks <span class="arrow">▼</span></div>
-        <div class="agenda-content">
-          <p><b>Topic:</b> Experts discuss the future roadmap of digital pharma transformation.</p>
-          <p><b>Panelists:</b> Pharma, biotech, and health tech leaders.</p>
-        </div>
-      </div>
-
-      <a href="https://l1nk.dev/z3mgp" target="_blank" class="sponsor-btn">💼 Sponsor This Event</a>
     </section>
 
     <!-- PRICING -->
@@ -263,10 +206,10 @@ function doGet() {
           <h3>💼 Sponsorship</h3>
           <div class="price">$499</div>
           <ul>
-            <li>Logo featured on all promotions</li>
+            <li>Logo featured on promotions</li>
             <li>10-minute speaking slot</li>
-            <li>Attendee list post-event</li>
-            <li>Brand recognition across materials</li>
+            <li>Access to attendee list</li>
+            <li>Brand recognition in materials</li>
           </ul>
           <a href="https://tinyurl.com/5dmud832" target="_blank">Become a Sponsor</a>
         </div>
@@ -274,21 +217,21 @@ function doGet() {
           <h3>🎤 Speaking Opportunity</h3>
           <div class="price">$199</div>
           <ul>
-            <li>15-minute speaking session</li>
-            <li>Profile on website & brochure</li>
-            <li>Networking with pharma leaders</li>
-            <li>Session recording access</li>
+            <li>15-minute session</li>
+            <li>Profile on website</li>
+            <li>Networking with leaders</li>
+            <li>Recording provided</li>
           </ul>
           <a href="https://tinyurl.com/5dmud832" target="_blank">Apply to Speak</a>
         </div>
         <div class="pricing-card">
-          <h3>🎟️ Delegate Pass</h3>
+          <h3>🎟 Delegate Pass</h3>
           <div class="price">$99</div>
           <ul>
-            <li>Access to all live sessions</li>
-            <li>Interactive Q&A & panels</li>
+            <li>Full event access</li>
+            <li>Interactive sessions</li>
             <li>Networking & expo zone</li>
-            <li>E-Certificate of participation</li>
+            <li>E-Certificate included</li>
           </ul>
           <a href="https://tinyurl.com/5dmud832" target="_blank">Register Now</a>
         </div>
@@ -303,11 +246,10 @@ function doGet() {
         <p><b>📞 Phone:</b> +91-9508170452</p>
         <p><b>📧 Email:</b> <a href="mailto:info@chance4connect.info">info@chance4connect.info</a></p>
       </div>
-      <a href="https://l1nk.dev/FdBVH" target="_blank" class="contact-btn">📩 Send a Message</a>
     </section>
 
     <footer>
-      © 2025 Chance4Connect | Connect. Innovate. Grow.<br>🌐 www.chance4connect.info
+      © 2025 Chance4Connect | Connect. Innovate. Grow.
     </footer>
 
     <script>
@@ -325,5 +267,3 @@ function doGet() {
     </script>
   </body>
 </html>
-  `);
-}
