@@ -2,53 +2,74 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Pharma Innovation & R&D Summit 2025 — Chance4Connect</title>
     <style>
-      body {
+      /* Reset */
+      body, html {
         margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
         font-family: 'Segoe UI', Arial, sans-serif;
-        background-color: #f9fafc;
-        color: #222;
       }
 
-      section { padding: 60px 20px; text-align: center; }
-      h2 { color: #003459; margin-bottom: 20px; }
+      /* Navigation Bar */
+      nav {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%;
+        background: #003459;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 40px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+      }
+      nav .logo {
+        font-weight: 700;
+        font-size: 1.2em;
+        letter-spacing: 0.5px;
+      }
+      nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 25px;
+      }
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      nav ul li a:hover {
+        color: #ff7a00;
+      }
 
-      /* HERO */
+      /* Hero */
       .hero {
         position: relative;
         height: 100vh;
+        background: url("https://lh3.googleusercontent.com/d/16E8rVQUsQjZFsv8a5yN-lxgVLs6r6pfA=w600") center/cover no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: white;
         text-align: center;
-        overflow: hidden;
-      }
-      .hero-bg {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0; left: 0;
-        object-fit: cover;
-        z-index: 1;
-        animation: zoomfade 20s ease-in-out infinite alternate;
-      }
-      @keyframes zoomfade {
-        0% { transform: scale(1); filter: brightness(90%); }
-        100% { transform: scale(1.15); filter: brightness(100%); }
+        color: white;
       }
       .overlay {
         position: absolute;
         top: 0; left: 0;
         width: 100%; height: 100%;
         background: rgba(0, 30, 60, 0.55);
-        z-index: 2;
+        z-index: 1;
       }
       .hero-content {
-        z-index: 3;
+        z-index: 2;
         position: relative;
         animation: fadein 2s ease-out;
       }
@@ -57,57 +78,81 @@
         to { opacity: 1; transform: translateY(0); }
       }
       .hero-logo { width: 140px; margin-bottom: 10px; }
-      .tagline { font-size: 1em; letter-spacing: 1px; color: #f0f0f0; }
-      h1 { font-size: 2.6em; margin: 10px 0 5px; }
+      .tagline { color: #f0f0f0; font-size: 1em; letter-spacing: 1px; }
+      h1 { font-size: 2.5em; margin: 10px 0 5px; }
       .register-btn {
-        background: #ff7a00; color: white; padding: 14px 32px;
-        border-radius: 30px; text-decoration: none; font-weight: 600;
+        background: #ff7a00;
+        color: white;
+        padding: 14px 32px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
         transition: background 0.3s;
       }
       .register-btn:hover { background: #e06800; }
 
-      /* ABOUT */
-      .about { background: #fff; color: #333; }
-      .about h3 { color: #003459; }
-      .about p { max-width: 800px; margin: 0 auto 15px; line-height: 1.7em; }
+      /* Section Styling */
+      section {
+        padding: 80px 20px;
+        text-align: center;
+      }
+      h2 {
+        color: #003459;
+        margin-bottom: 20px;
+      }
 
-      /* SPEAKERS */
-      .speakers { background: #e6f0ff; }
-
-      /* AGENDA */
+      /* Agenda */
       .agenda { background: #fffaf2; }
       .agenda-item {
-        background: #fff; max-width: 800px; margin: 15px auto;
-        border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-        text-align: left; overflow: hidden;
+        background: #fff;
+        max-width: 800px;
+        margin: 15px auto;
+        border-radius: 10px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        text-align: left;
+        overflow: hidden;
       }
       .agenda-header {
-        background: #003459; color: white; padding: 15px 20px;
-        cursor: pointer; font-weight: 600; display: flex;
-        justify-content: space-between; align-items: center;
+        background: #003459;
+        color: white;
+        padding: 15px 20px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       }
-      .agenda-header:hover { background: #005f8a; }
-      .arrow { transition: transform 0.3s ease; font-size: 1.2em; }
-      .rotate { transform: rotate(180deg); }
+      .arrow {
+        transition: transform 0.3s ease;
+        font-size: 1.2em;
+      }
+      .rotate {
+        transform: rotate(180deg);
+      }
       .agenda-content {
-        display: none; padding: 20px; background: #fff;
-        animation: fadeInContent 0.4s ease-in-out;
-      }
-      @keyframes fadeInContent {
-        from { opacity: 0; transform: translateY(-10px); }
-        to { opacity: 1; transform: translateY(0); }
+        display: none;
+        padding: 20px;
+        background: #fff;
       }
 
-      /* PRICING */
-      .pricing { background: #ffffff; padding: 80px 20px; }
+      /* Pricing */
+      .pricing { background: #ffffff; }
       .pricing-container {
-        display: flex; flex-wrap: wrap; justify-content: center;
-        gap: 30px; max-width: 1000px; margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto;
       }
       .pricing-card {
-        background: #f2f8ff; border: 2px solid #003459; border-radius: 15px;
-        width: 300px; padding: 25px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        transition: all 0.4s ease; position: relative;
+        background: #f2f8ff;
+        border: 2px solid #003459;
+        border-radius: 15px;
+        width: 300px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
+        position: relative;
       }
       .pricing-card:hover {
         transform: translateY(-8px);
@@ -130,60 +175,81 @@
       .pricing-card h3 { color: #003459; margin-bottom: 10px; }
       .price { font-size: 1.8em; color: #ff7a00; margin-bottom: 15px; }
       .pricing-card ul {
-        list-style-type: none; padding: 0; margin-bottom: 20px; text-align: left;
+        list-style-type: none;
+        padding: 0;
+        margin-bottom: 20px;
+        text-align: left;
       }
-      .pricing-card ul li { margin: 8px 0; font-size: 0.95em; }
+      .pricing-card ul li {
+        margin: 8px 0;
+        font-size: 0.95em;
+      }
       .pricing-card a {
-        display: inline-block; background: #003459; color: white;
-        padding: 10px 25px; border-radius: 25px; text-decoration: none;
-        font-weight: 600; transition: background 0.3s;
+        display: inline-block;
+        background: #003459;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background 0.3s;
       }
       .pricing-card a:hover { background: #005f8a; }
 
-      /* CONTACT */
+      /* Contact */
       .contact { background: #e6f0ff; }
       .contact-info {
-        max-width: 600px; margin: 0 auto; text-align: left;
-        font-size: 1.05em; line-height: 1.8em;
-      }
-      .contact-info a { color: #003459; text-decoration: none; font-weight: 600; }
-      .contact-btn {
-        display: inline-block; background: #003459; color: white;
-        padding: 12px 25px; border-radius: 30px; margin-top: 20px;
-        text-decoration: none; font-weight: 600;
+        max-width: 600px;
+        margin: 0 auto;
+        text-align: left;
+        font-size: 1.05em;
+        line-height: 1.8em;
       }
 
       footer {
-        background: #003459; color: white; padding: 25px 15px; font-size: 0.9em;
+        background: #003459;
+        color: white;
+        padding: 25px 15px;
+        font-size: 0.9em;
       }
 
       @media (max-width: 768px) {
+        nav { flex-direction: column; gap: 10px; }
+        nav ul { flex-wrap: wrap; justify-content: center; }
+        h1 { font-size: 1.8em; }
         .pricing-container { flex-direction: column; align-items: center; }
-        h1 { font-size: 2em; }
-        .hero-logo { width: 100px; }
       }
     </style>
   </head>
 
   <body>
+    <!-- NAV -->
+    <nav>
+      <div class="logo">Chance 4 Connect</div>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
     <!-- HERO -->
-    <section class="hero">
-      <img class="hero-bg" src="https://lh3.googleusercontent.com/d/16E8rVQUsQjZFsv8a5yN-lxgVLs6r6pfA=w600">
+    <section id="home" class="hero">
       <div class="overlay"></div>
       <div class="hero-content">
         <img src="https://lh3.googleusercontent.com/d/18LMo2Fpse4pgbQp_Rij6NQaGZp1lePfR=w1920" class="hero-logo">
         <p class="tagline">Connect. Innovate. Grow.</p>
         <h1>Virtual Pharma Innovation & R&D Summit 2025</h1>
-        <p>🗓 16th December 2025</p>
+        <p>🗓️ 16th December 2025</p>
         <a href="https://tinyurl.com/5dmud832" target="_blank" class="register-btn">Register Now</a>
       </div>
     </section>
 
     <!-- AGENDA -->
-    <section class="agenda">
-      <h2>Event Agenda (Starts at 11:00 AM IST)</h2>
-      <p><b>Theme:</b> “Shaping the Future of Pharma: AI, Data & Digital Evolution”</p>
-
+    <section id="agenda" class="agenda">
+      <h2>Event Agenda</h2>
+      <p><b>Theme:</b> Shaping the Future of Pharma — AI, Data & Digital Evolution</p>
       <div class="agenda-item">
         <div class="agenda-header">11:00 AM – Opening Keynote <span class="arrow">▼</span></div>
         <div class="agenda-content">
@@ -199,7 +265,7 @@
     </section>
 
     <!-- PRICING -->
-    <section class="pricing">
+    <section id="pricing" class="pricing">
       <h2>Participation Fees & Benefits</h2>
       <div class="pricing-container">
         <div class="pricing-card">
@@ -225,7 +291,7 @@
           <a href="https://tinyurl.com/5dmud832" target="_blank">Apply to Speak</a>
         </div>
         <div class="pricing-card">
-          <h3>🎟 Delegate Pass</h3>
+          <h3>🎟️ Delegate Pass</h3>
           <div class="price">$99</div>
           <ul>
             <li>Full event access</li>
@@ -239,7 +305,7 @@
     </section>
 
     <!-- CONTACT -->
-    <section class="contact">
+    <section id="contact" class="contact">
       <h2>Contact Us</h2>
       <div class="contact-info">
         <p><b>📍 Office:</b> Chance 4 Connect, Motihari, Bihar, India</p>
@@ -249,10 +315,11 @@
     </section>
 
     <footer>
-      © 2025 Chance4Connect | Connect. Innovate. Grow.
+      © 2025 Chance4Connect | Connect. Innovate. Grow.<br>🌐 www.chance4connect.info
     </footer>
 
     <script>
+      // Agenda toggle
       document.querySelectorAll('.agenda-header').forEach(header => {
         header.addEventListener('click', () => {
           const content = header.nextElementSibling;
