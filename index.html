@@ -73,9 +73,32 @@
       }
       .register-btn:hover { background: #e06800; }
 
-      /* SECTION */
+      /* SECTIONS */
       section { padding: 80px 20px; text-align: center; }
       h2 { color: #003459; margin-bottom: 20px; }
+
+      /* ABOUT */
+      .about {
+        background: #ffffff;
+        color: #333;
+      }
+      .about h3 { color: #003459; }
+      .about p {
+        max-width: 800px;
+        margin: 0 auto 15px;
+        line-height: 1.7em;
+        font-size: 1.05em;
+      }
+
+      /* SPEAKERS */
+      .speakers {
+        background: #e6f0ff;
+        color: #003459;
+      }
+      .speakers p {
+        font-size: 1.1em;
+        color: #333;
+      }
 
       /* AGENDA */
       .agenda { background: #fffaf2; }
@@ -145,9 +168,7 @@
         margin: 10px 0;
         text-align: left;
       }
-      .pricing-box ul li {
-        margin: 5px 0;
-      }
+      .pricing-box ul li { margin: 5px 0; }
       .pricing-box a {
         display: inline-block;
         background: #003459;
@@ -157,9 +178,7 @@
         text-decoration: none;
         font-weight: 600;
       }
-      .pricing-box a:hover {
-        background: #005f8a;
-      }
+      .pricing-box a:hover { background: #005f8a; }
 
       /* CONTACT */
       .contact { background: #e6f0ff; }
@@ -191,6 +210,8 @@
       </div>
       <ul>
         <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#speakers">Speakers</a></li>
         <li><a href="#agenda">Agenda</a></li>
         <li><a href="#pricing">Pricing</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -203,67 +224,64 @@
       <div class="hero-content">
         <p class="tagline">Connect. Innovate. Grow.</p>
         <h1>Virtual Pharma Innovation & R&D Summit 2025</h1>
-        <p>🗓️ 16th December 2025</p>
+        <p>🗓 16th December 2025</p>
         <a href="https://tinyurl.com/5dmud832" target="_blank" class="register-btn">Register Now</a>
       </div>
     </section>
 
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <h2>About the Event</h2>
+      <h3>Organized by Chance 4 Connect</h3>
+      <p>
+        Step into the future of pharma innovation! The <b>Virtual Pharma Innovation & R&D Summit 2025</b> brings together global pharma leaders, visionary innovators, and cutting-edge researchers to explore the breakthroughs redefining healthcare.
+      </p>
+      <p>
+        From AI-driven drug discovery and data-powered research to next-gen digital health solutions, this summit dives deep into the technologies and strategies transforming pharma’s future.
+      </p>
+      <p>
+        Join us as we shape the next era of healthcare innovation, foster collaboration, and accelerate the digital transformation of life sciences worldwide.
+      </p>
+    </section>
+
+    <!-- SPEAKERS -->
+    <section id="speakers" class="speakers">
+      <h2>Speakers</h2>
+      <p><b>Coming Soon...</b></p>
+    </section>
+
     <!-- AGENDA -->
     <section id="agenda" class="agenda">
-      <h2>4-Hour Virtual Pharma Event Agenda</h2>
+      <h2>Event Agenda (Starts at 11:00 AM IST)</h2>
       <p><b>Theme:</b> Shaping the Future of Pharma: AI, Data & Digital Evolution</p>
-
       <div class="agenda-item">
         <div class="agenda-header">11:00 AM – Opening Keynote <span class="arrow">▼</span></div>
         <div class="agenda-content">
-          <ul>
-            <li>Patient-centric innovation</li>
-            <li>Global pharma trends for 2025</li>
-            <li>Agile, data-driven R&D</li>
-          </ul>
+          <ul><li>Patient-centric innovation</li><li>Global pharma trends</li><li>Agile, data-driven R&D</li></ul>
         </div>
       </div>
-
       <div class="agenda-item">
         <div class="agenda-header">11:30 AM – Digital Transformation in R&D <span class="arrow">▼</span></div>
         <div class="agenda-content">
-          <ul>
-            <li>AI in molecule discovery</li>
-            <li>Predictive analytics</li>
-            <li>Overcoming digital barriers</li>
-          </ul>
+          <ul><li>AI in molecule discovery</li><li>Predictive analytics</li><li>Overcoming digital barriers</li></ul>
         </div>
       </div>
-
       <div class="agenda-item">
         <div class="agenda-header">12:15 PM – Clinical Research Breakthroughs <span class="arrow">▼</span></div>
         <div class="agenda-content">
-          <ul>
-            <li>Decentralized trials</li>
-            <li>Automation in workflows</li>
-            <li>Patient engagement</li>
-          </ul>
+          <ul><li>Decentralized trials</li><li>Automation in workflows</li><li>Patient engagement</li></ul>
         </div>
       </div>
-
       <div class="agenda-item">
         <div class="agenda-header">1:15 PM – The Power of AI & Data <span class="arrow">▼</span></div>
         <div class="agenda-content">
-          <ul>
-            <li>Precision medicine</li>
-            <li>Data ethics and compliance</li>
-            <li>Next-gen healthcare ecosystem</li>
-          </ul>
+          <ul><li>Precision medicine</li><li>Data ethics and compliance</li><li>Next-gen healthcare ecosystem</li></ul>
         </div>
       </div>
-
       <div class="agenda-item">
         <div class="agenda-header">2:00 PM – Panel Discussion & Closing <span class="arrow">▼</span></div>
         <div class="agenda-content">
-          <ul>
-            <li>Future roadmap of digital pharma</li>
-            <li>Global insights from experts</li>
-          </ul>
+          <ul><li>Future roadmap of digital pharma</li><li>Global insights from experts</li></ul>
         </div>
       </div>
     </section>
@@ -276,7 +294,7 @@
           <tr>
             <th>💼 Sponsorship</th>
             <th>🎤 Speaking Opportunity</th>
-            <th>🎟️ Delegate Pass</th>
+            <th>🎟 Delegate Pass</th>
           </tr>
           <tr>
             <td><span class="price">$499</span></td>
