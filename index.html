@@ -130,55 +130,67 @@
       }
 
       /* PRICING */
-      .pricing { background: #ffffff; }
-      .pricing-box {
+      .pricing {
+        background: #ffffff;
+      }
+      .pricing-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+      .pricing-card {
+        flex: 1;
+        min-width: 280px;
+        max-width: 350px;
         background: #f2f8ff;
         border: 2px solid #003459;
         border-radius: 15px;
-        max-width: 1000px;
-        margin: 0 auto;
-        padding: 30px;
+        padding: 25px;
         box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: all 0.4s ease;
       }
-      .pricing-box table {
-        width: 100%;
-        border-collapse: collapse;
+      .pricing-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 10px 25px rgba(0, 52, 89, 0.3);
+        border-color: #ff7a00;
       }
-      .pricing-box th, .pricing-box td {
-        padding: 15px;
-        text-align: center;
-        vertical-align: top;
-      }
-      .pricing-box th {
-        background: #003459;
-        color: white;
-        font-size: 1.1em;
-      }
-      .pricing-box td {
-        background: #fff;
+      .pricing-card h3 {
+        color: #003459;
+        font-size: 1.2em;
+        margin-bottom: 10px;
       }
       .price {
+        font-size: 1.8em;
         color: #ff7a00;
-        font-size: 1.6em;
+        margin-bottom: 15px;
         font-weight: bold;
       }
-      .pricing-box ul {
+      .pricing-card ul {
         list-style-type: none;
         padding: 0;
-        margin: 10px 0;
+        margin-bottom: 20px;
         text-align: left;
       }
-      .pricing-box ul li { margin: 5px 0; }
-      .pricing-box a {
+      .pricing-card ul li {
+        margin: 8px 0;
+        font-size: 0.95em;
+      }
+      .pricing-card a {
         display: inline-block;
         background: #003459;
         color: white;
-        padding: 8px 20px;
-        border-radius: 20px;
+        padding: 10px 25px;
+        border-radius: 25px;
         text-decoration: none;
         font-weight: 600;
+        transition: background 0.3s;
       }
-      .pricing-box a:hover { background: #005f8a; }
+      .pricing-card a:hover {
+        background: #005f8a;
+      }
 
       /* CONTACT */
       .contact { background: #e6f0ff; }
@@ -195,8 +207,6 @@
       @media (max-width: 768px) {
         nav { flex-direction: column; gap: 10px; }
         nav ul { flex-wrap: wrap; justify-content: center; }
-        table { display: block; overflow-x: auto; }
-        th, td { display: block; width: 100%; }
       }
     </style>
   </head>
@@ -233,15 +243,9 @@
     <section id="about" class="about">
       <h2>About the Event</h2>
       <h3>Organized by Chance 4 Connect</h3>
-      <p>
-        Step into the future of pharma innovation! The <b>Virtual Pharma Innovation & R&D Summit 2025</b> brings together global pharma leaders, visionary innovators, and cutting-edge researchers to explore the breakthroughs redefining healthcare.
-      </p>
-      <p>
-        From AI-driven drug discovery and data-powered research to next-gen digital health solutions, this summit dives deep into the technologies and strategies transforming pharma’s future.
-      </p>
-      <p>
-        Join us as we shape the next era of healthcare innovation, foster collaboration, and accelerate the digital transformation of life sciences worldwide.
-      </p>
+      <p>The <b>Virtual Pharma Innovation & R&D Summit 2025</b> brings together global pharma leaders, visionary innovators, and cutting-edge researchers to explore the breakthroughs redefining healthcare.</p>
+      <p>From AI-driven drug discovery and data-powered research to next-gen digital health solutions, this summit dives deep into the technologies and strategies transforming pharma’s future.</p>
+      <p>Join us as we shape the next era of healthcare innovation, foster collaboration, and accelerate the digital transformation of life sciences worldwide.</p>
     </section>
 
     <!-- SPEAKERS -->
@@ -253,31 +257,36 @@
     <!-- AGENDA -->
     <section id="agenda" class="agenda">
       <h2>Event Agenda (Starts at 11:00 AM IST)</h2>
-      <p><b>Theme:</b> Shaping the Future of Pharma: AI, Data & Digital Evolution</p>
+      <p><b>Theme:</b> Shaping the Future of Pharma — AI, Data & Digital Evolution</p>
+
       <div class="agenda-item">
         <div class="agenda-header">11:00 AM – Opening Keynote <span class="arrow">▼</span></div>
         <div class="agenda-content">
           <ul><li>Patient-centric innovation</li><li>Global pharma trends</li><li>Agile, data-driven R&D</li></ul>
         </div>
       </div>
+
       <div class="agenda-item">
         <div class="agenda-header">11:30 AM – Digital Transformation in R&D <span class="arrow">▼</span></div>
         <div class="agenda-content">
           <ul><li>AI in molecule discovery</li><li>Predictive analytics</li><li>Overcoming digital barriers</li></ul>
         </div>
       </div>
+
       <div class="agenda-item">
         <div class="agenda-header">12:15 PM – Clinical Research Breakthroughs <span class="arrow">▼</span></div>
         <div class="agenda-content">
           <ul><li>Decentralized trials</li><li>Automation in workflows</li><li>Patient engagement</li></ul>
         </div>
       </div>
+
       <div class="agenda-item">
         <div class="agenda-header">1:15 PM – The Power of AI & Data <span class="arrow">▼</span></div>
         <div class="agenda-content">
           <ul><li>Precision medicine</li><li>Data ethics and compliance</li><li>Next-gen healthcare ecosystem</li></ul>
         </div>
       </div>
+
       <div class="agenda-item">
         <div class="agenda-header">2:00 PM – Panel Discussion & Closing <span class="arrow">▼</span></div>
         <div class="agenda-content">
@@ -289,48 +298,42 @@
     <!-- PRICING -->
     <section id="pricing" class="pricing">
       <h2>Participation Fees & Benefits</h2>
-      <div class="pricing-box">
-        <table>
-          <tr>
-            <th>💼 Sponsorship</th>
-            <th>🎤 Speaking Opportunity</th>
-            <th>🎟 Delegate Pass</th>
-          </tr>
-          <tr>
-            <td><span class="price">$499</span></td>
-            <td><span class="price">$199</span></td>
-            <td><span class="price">$99</span></td>
-          </tr>
-          <tr>
-            <td>
-              <ul>
-                <li>Logo on event promotions</li>
-                <li>10-min speaking slot</li>
-                <li>Attendee list post-event</li>
-                <li>Brand recognition</li>
-              </ul>
-              <a href="https://tinyurl.com/5dmud832" target="_blank">Sponsor Now</a>
-            </td>
-            <td>
-              <ul>
-                <li>15-min speaking slot</li>
-                <li>Profile on website</li>
-                <li>Networking with leaders</li>
-                <li>Recording access</li>
-              </ul>
-              <a href="https://tinyurl.com/5dmud832" target="_blank">Apply to Speak</a>
-            </td>
-            <td>
-              <ul>
-                <li>Full event access</li>
-                <li>Interactive sessions</li>
-                <li>Networking lounge</li>
-                <li>E-Certificate</li>
-              </ul>
-              <a href="https://tinyurl.com/5dmud832" target="_blank">Register</a>
-            </td>
-          </tr>
-        </table>
+      <div class="pricing-container">
+        <div class="pricing-card">
+          <h3>💼 Sponsorship</h3>
+          <div class="price">$499</div>
+          <ul>
+            <li>Logo featured on promotions</li>
+            <li>10-min speaking slot</li>
+            <li>Attendee list post-event</li>
+            <li>Brand recognition</li>
+          </ul>
+          <a href="https://tinyurl.com/5dmud832" target="_blank">Sponsor Now</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>🎤 Speaking Opportunity</h3>
+          <div class="price">$199</div>
+          <ul>
+            <li>15-min speaking session</li>
+            <li>Profile on website</li>
+            <li>Networking with leaders</li>
+            <li>Recording access</li>
+          </ul>
+          <a href="https://tinyurl.com/5dmud832" target="_blank">Apply to Speak</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3>🎟 Delegate Pass</h3>
+          <div class="price">$99</div>
+          <ul>
+            <li>Full event access</li>
+            <li>Interactive sessions</li>
+            <li>Networking & expo zone</li>
+            <li>E-Certificate</li>
+          </ul>
+          <a href="https://tinyurl.com/5dmud832" target="_blank">Register</a>
+        </div>
       </div>
     </section>
 
